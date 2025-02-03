@@ -1,17 +1,7 @@
-# Add this at the top
 [profile.default]
 src = "src"
 out = "out"
 libs = ["lib"]
 
-
 [rpc_endpoints]
 arb_sepolia = "${ARBITRUM_SEPOLIA_RPC_URL}"
-
-
-# [etherscan]
-# arb_sepolia = { key = "${ETHERSCAN_API_KEY}" }
-
-# Define network-specific variables
-# [variables]
-# arb_sepolia_instance00 = "0x002Ba7d05c296A18F5Cb1E2BF31bA08C1b7fE220"
