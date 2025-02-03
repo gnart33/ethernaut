@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import {Instance} from "ethernaut-contract/00Hello.sol";
+import {Instance} from "ethernaut/00.sol";
 
 contract Attacker {
     Instance level0;
