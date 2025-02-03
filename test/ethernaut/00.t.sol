@@ -3,19 +3,20 @@ pragma solidity ^0.8.0;
 
 import {Test, console} from "forge-std/Test.sol";
 import {Instance} from "ethernaut/00.sol";
-import {Attacker} from "src/ethernaut/00.sol";
+import {AttackContract} from "src/ethernaut/00.sol";
+import {TestBase} from "test/TestBase.sol";
 
-contract AttackTest is Test {
-    Instance public level0;
+contract TestAttack is Test, TestBase {
+    Instance public instance;
 
     function setUp() public {
-        level0 = new Instance("password"); // create new challenge instance
-        console.log("Level0 address:", address(level0));
+        instance = new Instance("password"); // create new challenge instance
+        console.log("Instance address:", address(instance));
     }
 
     function test_attack() public {
-        Attacker attacker = new Attacker(address(level0)); // create attacker contract
-        attacker.exploit();
-        assertEq(level0.getCleared(), true);
+        AttackContract attackContract = new AttackContract(address(instance)); // create attacker contract
+        attackContract.exploit();
+        assertEq(instance.getCleared(), true);
     }
 }
